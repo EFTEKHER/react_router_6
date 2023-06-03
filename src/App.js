@@ -13,6 +13,11 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <>
+    <Routes location='/books'>
+    
+    <Route path='/books' element={<h1> extra Content</h1>} />
+    
+    </Routes>
     <nav>
     <ul>
     <li><Link to="/">Home</Link></li>
