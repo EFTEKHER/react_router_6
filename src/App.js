@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import NewBook from './pages/NewBook';
 import NotFound from './pages/NotFound';
 
-import { BrowserRouter, Routes, Route, Link, useRoutes } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useRoutes,NavLink } from "react-router-dom";
 function App() {
 
 let element=useRoutes([
@@ -33,8 +33,13 @@ let element=useRoutes([
   
     <nav>
     <ul>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/books">Books</Link></li>
+    <li><NavLink to="/" style={({isActive})=>{
+      return isActive?{color:'red'}:{}
+    }}>{({isActive})=>{
+
+      return isActive?"Active Home":"Home"
+    }}</NavLink></li>
+    <li><NavLink to="/books">Books</NavLink></li>
     </ul>
     </nav>
 {element}
