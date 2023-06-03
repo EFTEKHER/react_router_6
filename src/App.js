@@ -8,8 +8,26 @@ import Home from './pages/Home';
 import NewBook from './pages/NewBook';
 import NotFound from './pages/NotFound';
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useRoutes } from "react-router-dom";
 function App() {
+
+let element=useRoutes([
+{
+  path:"/",
+  element:<Home/>
+},
+{
+  path:"/books/*",
+  element:<BookRoutes/>
+},
+{
+  path:"*",
+  
+  element:<NotFound/>
+}
+
+])
+
   return (
     <>
   
@@ -19,22 +37,24 @@ function App() {
     <li><Link to="/books">Books</Link></li>
     </ul>
     </nav>
-
-    <Routes>
-    
-    <Route path="/" element={<Home/>}/>
-
-
-    <Route path="/books/*" element={<BookRoutes/>}/>
+{element}
    {
-    // <Route path="/books" element={<BookList/>}/>
-    // <Route path='books/:id' element={<Book/>}/>
+  //   <Routes>
+    
+  //   <Route path="/" element={<Home/>}/>
 
-    // <Route path='books/new' element={<NewBook/>}/>
+
+  //   <Route path="/books/*" element={<BookRoutes/>}/>
+  //  {
+  //   // <Route path="/books" element={<BookList/>}/>
+  //   // <Route path='books/:id' element={<Book/>}/>
+
+  //   // <Route path='books/new' element={<NewBook/>}/>
+  //  }
+
+  //   <Route path="*" element={<NotFound/>}/>
+  //   </Routes>
    }
-
-    <Route path="*" element={<NotFound/>}/>
-    </Routes>
     </>
   );
 }
