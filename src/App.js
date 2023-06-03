@@ -1,9 +1,8 @@
 
 import './App.css';
 import About from './pages/About';
-import Book from './pages/Book';
-import BookLayout from './pages/BookLayout';
-import BookList from './pages/BookList';
+import BookRoutes from './pages/BookRoutes';
+
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import NewBook from './pages/NewBook';
@@ -13,11 +12,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <>
-    <Routes location='/books'>
-    
-    <Route path='/books' element={<h1> extra Content</h1>} />
-    
-    </Routes>
+  
     <nav>
     <ul>
     <li><Link to="/">Home</Link></li>
@@ -30,12 +25,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
 
 
-    <Route path="/books" element={<BookLayout/>}>
-    <Route index element={<BookList />}/>
-    <Route path=':id' element={<Book/>}/>
-
-    <Route path='new' element={<NewBook/>}/>
-    </Route>
+    <Route path="/books/*" element={<BookRoutes/>}/>
    {
     // <Route path="/books" element={<BookList/>}/>
     // <Route path='books/:id' element={<Book/>}/>
