@@ -2,11 +2,13 @@
 import './App.css';
 import About from './pages/About';
 import Book from './pages/Book';
+import BookLayout from './pages/BookLayout';
 import BookList from './pages/BookList';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import NewBook from './pages/NewBook';
 import NotFound from './pages/NotFound';
+
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
 
 
-    <Route path="/books" >
+    <Route path="/books" element={<BookLayout/>}>
     <Route index element={<BookList />}/>
     <Route path=':id' element={<Book/>}/>
 
